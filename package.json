@@ -1,0 +1,25 @@
+{
+    "name": "@pomodoro/workspace",
+    "private": true,
+    "type": "module",
+    "version": "0.0.0",
+    "packageManager": "pnpm@10.4.1",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "directory": "git+https://github.com/Yur1Freitas/pomodoro.git"
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "dev": "turbo run dev",
+        "build": "turbo run build"
+    },
+    "devDependencies": {
+        "@types/node": "^22.13.4",
+        "@yur1freitas/eslint-config": "^0.1.0",
+        "@yur1freitas/tsconfig": "^0.1.0",
+        "eslint": "^9.20.0",
+        "turbo": "^2.4.2"
+    }
+}

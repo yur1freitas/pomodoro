@@ -1,0 +1,6 @@
+{
+    "extends": "@yur1freitas/tsconfig/base",
+    "compilerOptions": { "types": ["node"] },
+    "include": ["apps/**/*.ts", "packages/**/*.ts"],
+    "exclude": ["**/node_modules/**"]
+}

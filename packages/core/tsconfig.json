@@ -1,0 +1,12 @@
+{
+    "extends": "@yur1freitas/tsconfig/base",
+    "compilerOptions": {
+        "types": ["vitest/globals"],
+        "baseUrl": ".",
+        "paths": {
+            "~/*": ["./src/*"]
+        }
+    },
+    "include": ["src/**/*.ts", "__test__/**/*.ts"],
+    "exclude": ["node_modules", "dist"]
+}

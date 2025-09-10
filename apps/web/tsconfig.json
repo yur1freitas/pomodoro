@@ -1,0 +1,11 @@
+{
+    "extends": "@yur1freitas/tsconfig/react",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "~/*": ["./src/*"]
+        }
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
+}
