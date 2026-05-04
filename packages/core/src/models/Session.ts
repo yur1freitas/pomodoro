@@ -1,7 +1,7 @@
 export type SessionType = 'short-break' | 'long-break' | 'work'
 
 export interface SessionProps {
-    type: SessionType,
+    type: SessionType
     duration: number
     startedTime?: number | null
     finishedTime?: number | null
@@ -14,12 +14,18 @@ export default class Session {
     readonly finishedTime: number | null
 
     constructor(props: SessionProps) {
-        const { type, duration, startedTime = null, finishedTime = null } = props
+        const {
+            type,
+            duration,
+            startedTime = null,
+            finishedTime = null
+        } = props
 
         this.type = type
         this.duration = duration
         this.startedTime = startedTime
-        this.finishedTime = finishedTime ?? (startedTime && startedTime + duration)
+        this.finishedTime =
+            finishedTime ?? (startedTime && startedTime + duration)
     }
 
     get isStarted(): boolean {

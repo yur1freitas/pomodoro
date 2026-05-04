@@ -1,6 +1,6 @@
-import type { SessionType } from '@pomodoro/core/models'
-
 import { useMemo } from 'react'
+
+import type { SessionType } from '@pomodoro/core/models'
 
 import usePomodoro from '~/hooks/usePomodoro'
 
@@ -22,5 +22,5 @@ export default function SessionTitle(): React.JSX.Element {
 
     const title = useMemo(() => getSessionTitle(session?.data?.type), [session])
 
-    return <p className='text-4xl text-center font-semibold'>{title}</p>
+    return <p className='text-center text-4xl font-semibold'>{title}</p>
 }

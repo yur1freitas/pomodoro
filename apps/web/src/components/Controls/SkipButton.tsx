@@ -1,5 +1,5 @@
-import { SkipForward } from 'lucide-react'
 import { useCallback } from 'react'
+import { SkipForward } from 'lucide-react'
 
 import usePomodoro from '~/hooks/usePomodoro'
 
@@ -15,5 +15,12 @@ export default function SkipButton(): React.JSX.Element {
         countdown.reset(session?.data?.duration)
     }, [alarm, session, countdown])
 
-    return <ControlsButton className='bg-blue-600 hover:bg-blue-600/80' action={skipAction} icon={SkipForward} label='Pular' />
+    return (
+        <ControlsButton
+            className='bg-blue-600 hover:bg-blue-600/80'
+            action={skipAction}
+            icon={SkipForward}
+            label='Pular'
+        />
+    )
 }

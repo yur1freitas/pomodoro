@@ -1,5 +1,6 @@
-import { defineConfig } from 'tsup'
 import { join } from 'node:path'
+
+import { defineConfig } from 'tsup'
 
 const tsconfig = join(process.cwd(), 'tsconfig.json')
 

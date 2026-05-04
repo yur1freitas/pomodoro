@@ -1,9 +1,9 @@
-import ResumeButton from './ResumeButton'
-import ControlsRoot from './ControlsRoot'
-import PauseButton from './PauseButton'
-import ResetButton from './ResetButton'
 import StartButton from './StartButton'
 import SkipButton from './SkipButton'
+import ResumeButton from './ResumeButton'
+import ResetButton from './ResetButton'
+import PauseButton from './PauseButton'
+import ControlsRoot from './ControlsRoot'
 
 const Controls = {
     root: ControlsRoot,

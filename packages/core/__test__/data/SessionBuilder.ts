@@ -9,7 +9,11 @@ export default class SessionBuilder {
 
     static create(): SessionBuilder {
         return new SessionBuilder({
-            type: faker.helpers.arrayElement<SessionType>(['work', 'short-break', 'long-break']),
+            type: faker.helpers.arrayElement<SessionType>([
+                'work',
+                'short-break',
+                'long-break'
+            ]),
             duration: faker.number.int({ min: 0, max: 1000 })
         })
     }

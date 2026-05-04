@@ -1,7 +1,7 @@
 import ClockSeparator from './ClockSeparator'
-import ClockMinutes from './ClockMinutes'
 import ClockSeconds from './ClockSeconds'
 import ClockRoot from './ClockRoot'
+import ClockMinutes from './ClockMinutes'
 
 const Clock = {
     root: ClockRoot,

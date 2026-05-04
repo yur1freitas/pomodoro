@@ -1,5 +1,5 @@
-import { RotateCcw } from 'lucide-react'
 import { useCallback } from 'react'
+import { RotateCcw } from 'lucide-react'
 
 import usePomodoro from '~/hooks/usePomodoro'
 
@@ -15,5 +15,12 @@ export default function ResetButton(): React.JSX.Element {
         countdown.reset(session?.data?.duration)
     }, [alarm, countdown, session])
 
-    return <ControlsButton className='bg-red-600 hover:bg-red-600/80' action={resetAction} icon={RotateCcw} label='Resetar' />
+    return (
+        <ControlsButton
+            className='bg-red-600 hover:bg-red-600/80'
+            action={resetAction}
+            icon={RotateCcw}
+            label='Resetar'
+        />
+    )
 }

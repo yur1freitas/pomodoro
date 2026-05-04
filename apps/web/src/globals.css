@@ -1,6 +1,7 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-html, body, #root {
-    @apply w-full min-h-screen relative;
+html,
+body,
+#root {
+    @apply relative min-h-screen w-full;
 }
- 

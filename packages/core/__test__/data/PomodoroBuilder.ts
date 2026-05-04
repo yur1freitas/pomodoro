@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 
-import type { PomodoroProps } from '~/models/Pomodoro'
 import type Session from '~/models/Session'
+import type { PomodoroProps } from '~/models/Pomodoro'
 
 import Pomodoro from '~/models/Pomodoro'
 
