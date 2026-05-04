@@ -10,8 +10,8 @@
         "directory": "git+https://github.com/Yur1Freitas/pomodoro.git"
     },
     "scripts": {
-        "lint": "eslint .",
-        "lint:fix": "eslint . --fix",
+        "lint": "oxlint .",
+        "lint:fix": "oxlint . --fix",
         "dev": "turbo run dev",
         "build": "turbo run build"
     },
