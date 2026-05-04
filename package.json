@@ -18,6 +18,7 @@
     "devDependencies": {
         "@config/typescript": "workspace:",
         "@types/node": "^22.13.4",
+        "oxfmt": "^0.47.0",
         "oxlint": "^1.62.0",
         "turbo": "^2.4.2"
     }
