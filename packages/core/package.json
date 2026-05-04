@@ -16,6 +16,7 @@
         "coverage": "vitest run --coverage"
     },
     "devDependencies": {
+        "typescript": "^5.7.2",
         "@config/typescript": "workspace:",
         "@faker-js/faker": "^9.5.0",
         "@vitest/coverage-v8": "^3.0.6",

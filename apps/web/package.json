@@ -20,6 +20,7 @@
         "tailwind-merge": "^3.0.1"
     },
     "devDependencies": {
+        "typescript": "^5.7.2",
         "@config/typescript": "workspace:",
         "@tailwindcss/vite": "^4.0.6",
         "@types/react": "^19.0.8",
