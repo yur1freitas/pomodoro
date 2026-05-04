@@ -14,8 +14,10 @@
         "order": "desc",
         "groups": [
             "style",
-            ["type-builtin", "type-external"],
-            ["builtin", "external"],
+            "type-builtin",
+            "builtin",
+            "type-external",
+            "external",
             "type-pomodoro",
             "pomodoro",
             "type-test",
