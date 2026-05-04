@@ -16,10 +16,8 @@
         "build": "turbo run build"
     },
     "devDependencies": {
-        "@yur1freitas/eslint-config": "^0.1.0",
         "@config/typescript": "workspace:",
         "@types/node": "^22.13.4",
-        "eslint": "^9.20.0",
         "oxlint": "^1.62.0",
         "turbo": "^2.4.2"
     }
