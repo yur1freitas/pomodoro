@@ -10,6 +10,8 @@
         "directory": "git+https://github.com/Yur1Freitas/pomodoro.git"
     },
     "scripts": {
+        "fmt": "oxfmt . --write",
+        "fmt:check": "oxfmt . --check",
         "lint": "oxlint .",
         "lint:fix": "oxlint . --fix",
         "dev": "turbo run dev",
