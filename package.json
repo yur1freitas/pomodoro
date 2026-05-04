@@ -14,7 +14,9 @@
         "lint": "oxlint .",
         "lint:fix": "oxlint . --fix",
         "dev": "turbo run dev",
-        "build": "turbo run build"
+        "build": "turbo run build",
+        "prepare": "husky",
+        "lint-staged": "lint-staged"
     },
     "devDependencies": {
         "@config/typescript": "workspace:",
