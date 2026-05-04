@@ -1,6 +1,7 @@
-import PomodoroBuilder from '__test__/data/PomodoroBuilder'
 import { setTimeout as sleep } from 'node:timers/promises'
+
 import SessionBuilder from '__test__/data/SessionBuilder'
+import PomodoroBuilder from '__test__/data/PomodoroBuilder'
 
 import { Pomodoro } from '~/models'
 
@@ -63,7 +64,11 @@ describe('Testando a classe: Pomodoro', () => {
 
     it('deve verificar se o pomodoro já foi finalizada', async () => {
         const session = SessionBuilder.create().setDuration(100).build()
-        const pomodoro = PomodoroBuilder.create().setIntervals(2).setSession(session).build().startSession()
+        const pomodoro = PomodoroBuilder.create()
+            .setIntervals(2)
+            .setSession(session)
+            .build()
+            .startSession()
 
         expect(pomodoro.isNotFinished).toBeTruthy()
 
@@ -73,7 +78,10 @@ describe('Testando a classe: Pomodoro', () => {
         expect(pomodoro.isNotFinished).toBeTruthy()
 
         const nextSession = session.clone()
-        const nextPomodoro = pomodoro.nextSession().clone({ session: nextSession }).startSession()
+        const nextPomodoro = pomodoro
+            .nextSession()
+            .clone({ session: nextSession })
+            .startSession()
 
         await sleep(nextPomodoro.session!.duration)
 
@@ -93,8 +101,7 @@ describe('Testando a classe: Pomodoro', () => {
 
     it('não deve iniciar uma sessão do pomodoro caso já esteja finalizado', async () => {
         const session = SessionBuilder.create().setDuration(100).build()
-        const startedPomodoro = PomodoroBuilder
-            .create()
+        const startedPomodoro = PomodoroBuilder.create()
             .setIntervals(1)
             .setSession(session)
             .build()
@@ -122,7 +129,11 @@ describe('Testando a classe: Pomodoro', () => {
 
     it('não deve resetar uma sessão do pomodoro caso já esteja finalizado', async () => {
         const session = SessionBuilder.create().setDuration(100).build()
-        const startedPomodoro = PomodoroBuilder.create().setIntervals(1).setSession(session).build().startSession()
+        const startedPomodoro = PomodoroBuilder.create()
+            .setIntervals(1)
+            .setSession(session)
+            .build()
+            .startSession()
 
         expect(startedPomodoro.isStarted).toBeTruthy()
         expect(startedPomodoro.isNotFinished).toBeTruthy()
@@ -149,7 +160,11 @@ describe('Testando a classe: Pomodoro', () => {
 
     it('não deve pular uma sessão do pomodoro caso já esteja finalizado', async () => {
         const session = SessionBuilder.create().setDuration(100).build()
-        const startedPomodoro = PomodoroBuilder.create().setIntervals(1).setSession(session).build().startSession()
+        const startedPomodoro = PomodoroBuilder.create()
+            .setIntervals(1)
+            .setSession(session)
+            .build()
+            .startSession()
 
         expect(startedPomodoro.isStarted).toBeTruthy()
         expect(startedPomodoro.isNotFinished).toBeTruthy()
@@ -177,9 +192,11 @@ describe('Testando a classe: Pomodoro', () => {
     })
 
     it('deve criar uma sessão de pausa longa após a sétima sessão de trabalho', () => {
-        const pomodoro = Array(7).fill(null).reduce((current) => {
-            return current.skipSession().startSession()
-        }, PomodoroBuilder.create().build().startSession())
+        const pomodoro = Array(7)
+            .fill(null)
+            .reduce((current) => {
+                return current.skipSession().startSession()
+            }, PomodoroBuilder.create().build().startSession())
 
         expect(pomodoro.session.type).toBe('long-break')
     })
@@ -193,7 +210,11 @@ describe('Testando a classe: Pomodoro', () => {
 
     it('deve retornar as propriedades do pomodoro', () => {
         const session = SessionBuilder.create().setDuration(100).build()
-        const pomodoro = PomodoroBuilder.create().setIntervals(1).setCount(2).setSession(session).build()
+        const pomodoro = PomodoroBuilder.create()
+            .setIntervals(1)
+            .setCount(2)
+            .setSession(session)
+            .build()
 
         const props = pomodoro.props
 

@@ -27,13 +27,16 @@ export default function useAudio(src: string): Readonly<UseAudioReturn> {
         audio.currentTime = 0
     }, [audioRef])
 
-    const play = useCallback((duration?: number) => {
-        if (duration && duration < audio.duration * 1e3) {
-            window.setTimeout(stop, duration)
-        }
+    const play = useCallback(
+        (duration?: number) => {
+            if (duration && duration < audio.duration * 1e3) {
+                window.setTimeout(stop, duration)
+            }
 
-        audio.play()
-    }, [audioRef])
+            audio.play()
+        },
+        [audioRef]
+    )
 
     return {
         play,

@@ -1,10 +1,10 @@
 {
     "name": "@pomodoro/web",
-    "private": true,
-    "type": "module",
     "version": "0.0.0",
-    "license": "MIT",
+    "private": true,
     "homepage": "https://yur1freitas.github.io/pomodoro",
+    "license": "MIT",
+    "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "tsc -b && vite build",
@@ -20,11 +20,11 @@
         "tailwind-merge": "^3.0.1"
     },
     "devDependencies": {
+        "@config/typescript": "workspace:",
         "@tailwindcss/vite": "^4.0.6",
         "@types/react": "^19.0.8",
         "@types/react-dom": "^19.0.3",
         "@vitejs/plugin-react-swc": "^3.8.0",
-        "@config/typescript": "workspace:",
         "gh-pages": "^6.3.0",
         "tailwindcss": "^4.0.6",
         "vite": "^6.1.0"

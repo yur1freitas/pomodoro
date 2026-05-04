@@ -21,8 +21,10 @@ export default function ControlsButton({
 }: ControlsButtonProps): React.JSX.Element {
     const classNames = twMerge(baseClassNames, className)
 
-    return <Button className={classNames} onClick={action}>
-        <Icon size={16} />
-        <p>{label}</p>
-    </Button>
+    return (
+        <Button className={classNames} onClick={action}>
+            <Icon size={16} />
+            <p>{label}</p>
+        </Button>
+    )
 }

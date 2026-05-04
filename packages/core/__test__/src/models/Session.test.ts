@@ -1,4 +1,5 @@
 import { setTimeout as sleep } from 'node:timers/promises'
+
 import SessionBuilder from '__test__/data/SessionBuilder'
 
 describe('Testando a classe: Session', () => {
@@ -69,15 +70,16 @@ describe('Testando a classe: Session', () => {
 
     it('deve calcular o tempo de finalização caso não seja fornecido', () => {
         const timestamp = Date.now()
-        const session = SessionBuilder.create().setStartedTime(timestamp).build()
+        const session = SessionBuilder.create()
+            .setStartedTime(timestamp)
+            .build()
 
         expect(session.finishedTime).toBe(timestamp + session.duration)
     })
 
     it('deve retonar as propriedades da Sessão', () => {
         const timestamp = Date.now()
-        const session = SessionBuilder
-            .create()
+        const session = SessionBuilder.create()
             .setType('long-break')
             .setDuration(100)
             .setStartedTime(timestamp)

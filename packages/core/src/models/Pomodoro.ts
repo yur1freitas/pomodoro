@@ -35,7 +35,10 @@ export default class Pomodoro {
     }
 
     get isFinished(): boolean {
-        return (this.session === null || this.session.isFinished) && this.count === this.intervals
+        return (
+            (this.session === null || this.session.isFinished) &&
+            this.count === this.intervals
+        )
     }
 
     get isNotFinished(): boolean {
@@ -93,13 +96,16 @@ export default class Pomodoro {
 
     private _createSession(): Session {
         if (this.session && this.session.type === 'work') {
-            const props: SessionProps = this.count % 7 === 0 ? {
-                type: 'long-break',
-                duration: LONG_BREAK_DURATION
-            } : {
-                type: 'short-break',
-                duration: SHORT_BREAK_DURATION
-            }
+            const props: SessionProps =
+                this.count % 7 === 0
+                    ? {
+                          type: 'long-break',
+                          duration: LONG_BREAK_DURATION
+                      }
+                    : {
+                          type: 'short-break',
+                          duration: SHORT_BREAK_DURATION
+                      }
 
             return new Session(props)
         }
@@ -107,9 +113,7 @@ export default class Pomodoro {
         return new Session({ type: 'work', duration: WORK_DURATION })
     }
 
-    clone(
-        props: Partial<PomodoroProps> = {}
-    ): Pomodoro {
+    clone(props: Partial<PomodoroProps> = {}): Pomodoro {
         return new Pomodoro({ ...this.props, ...props })
     }
 

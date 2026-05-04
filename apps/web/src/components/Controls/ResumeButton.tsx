@@ -1,5 +1,5 @@
-import { StepForward } from 'lucide-react'
 import { useCallback } from 'react'
+import { StepForward } from 'lucide-react'
 
 import usePomodoro from '~/hooks/usePomodoro'
 
@@ -15,5 +15,12 @@ export default function ResumeButton(): React.JSX.Element {
         countdown.resume()
     }, [alarm, countdown, session])
 
-    return <ControlsButton className='bg-emerald-600 hover:bg-emerald-600/80' action={resumeAction} icon={StepForward} label='Continuar' />
+    return (
+        <ControlsButton
+            className='bg-emerald-600 hover:bg-emerald-600/80'
+            action={resumeAction}
+            icon={StepForward}
+            label='Continuar'
+        />
+    )
 }

@@ -24,7 +24,10 @@ export interface UseCountDownReturn {
     reset: (time?: number) => void
 }
 
-export default function useCountDown({ duration = 0, onComplete }: UseCountDownProps): Readonly<UseCountDownReturn> {
+export default function useCountDown({
+    duration = 0,
+    onComplete
+}: UseCountDownProps): Readonly<UseCountDownReturn> {
     const intervalId = useRef(0)
 
     const [time, setTime] = useState(duration)

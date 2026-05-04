@@ -1,5 +1,5 @@
-import { Play } from 'lucide-react'
 import { useCallback } from 'react'
+import { Play } from 'lucide-react'
 
 import usePomodoro from '~/hooks/usePomodoro'
 
@@ -15,5 +15,12 @@ export default function StartButton(): React.JSX.Element {
         countdown.start()
     }, [alarm, countdown, session])
 
-    return <ControlsButton className='bg-emerald-600 hover:bg-emerald-600/80' action={startAction} label='Iniciar' icon={Play} />
+    return (
+        <ControlsButton
+            className='bg-emerald-600 hover:bg-emerald-600/80'
+            action={startAction}
+            label='Iniciar'
+            icon={Play}
+        />
+    )
 }

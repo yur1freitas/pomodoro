@@ -1,7 +1,7 @@
 import usePomodoro from '~/hooks/usePomodoro'
 
-import Controls from './Controls'
 import Session from './Session'
+import Controls from './Controls'
 import Clock from './Clock'
 
 export default function Content(): React.JSX.Element {
@@ -22,8 +22,10 @@ export default function Content(): React.JSX.Element {
                     </Clock.root>
                     <Controls.root>
                         {countdown.data.isNotActivated && <Controls.start />}
-                        {countdown.data.isActivated && countdown.data.isPaused && <Controls.resume />}
-                        {countdown.data.isActivated && countdown.data.isNotPaused && <Controls.pause />}
+                        {countdown.data.isActivated &&
+                            countdown.data.isPaused && <Controls.resume />}
+                        {countdown.data.isActivated &&
+                            countdown.data.isNotPaused && <Controls.pause />}
                         <Controls.skip />
                         <Controls.reset />
                     </Controls.root>

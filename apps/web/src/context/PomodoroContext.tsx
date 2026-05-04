@@ -1,6 +1,7 @@
+import { createContext, useCallback, useEffect, useState, useMemo } from 'react'
+
 import type { Session } from '@pomodoro/core/models'
 
-import { createContext, useCallback, useEffect, useState, useMemo } from 'react'
 import { Pomodoro } from '@pomodoro/core/models'
 
 import type { UseCountDownReturn } from '~/hooks/useCountDown'
@@ -32,7 +33,10 @@ export interface PomodoroProviderProps {
     children?: React.ReactNode
 }
 
-export function PomodoroProvider({ intervals, children }: PomodoroProviderProps): React.JSX.Element {
+export function PomodoroProvider({
+    intervals,
+    children
+}: PomodoroProviderProps): React.JSX.Element {
     const alarm = useAudio('/pomodoro/alarm.mp3')
 
     const [pomodoro, setPomodoro] = useState(Pomodoro.create(intervals))
@@ -41,10 +45,22 @@ export function PomodoroProvider({ intervals, children }: PomodoroProviderProps)
     const isStarted = pomodoro.isStarted
     const isFinished = pomodoro.isFinished
 
-    const start = useCallback(() => setPomodoro((pomodoro) => pomodoro.startSession()), [])
-    const next = useCallback(() => setPomodoro((pomodoro) => pomodoro.nextSession()), [])
-    const skip = useCallback(() => setPomodoro((pomodoro) => pomodoro.skipSession()), [])
-    const reset = useCallback(() => setPomodoro((pomodoro) => pomodoro.resetSession()), [])
+    const start = useCallback(
+        () => setPomodoro((pomodoro) => pomodoro.startSession()),
+        []
+    )
+    const next = useCallback(
+        () => setPomodoro((pomodoro) => pomodoro.nextSession()),
+        []
+    )
+    const skip = useCallback(
+        () => setPomodoro((pomodoro) => pomodoro.skipSession()),
+        []
+    )
+    const reset = useCallback(
+        () => setPomodoro((pomodoro) => pomodoro.resetSession()),
+        []
+    )
 
     const onComplete = useCallback(() => {
         next()
@@ -54,26 +70,28 @@ export function PomodoroProvider({ intervals, children }: PomodoroProviderProps)
     const countdown = useCountDown({ duration: session?.duration, onComplete })
 
     useEffect(() => {
-        if (countdown.data.isNotRunning && session) countdown.reset(session.duration)
+        if (countdown.data.isNotRunning && session)
+            countdown.reset(session.duration)
     }, [session])
 
-    const value = useMemo<PomodoroContextValue>(() => ({
-        alarm,
-        countdown,
-        data: {
-            isStarted,
-            isFinished
-        },
-        session: {
-            start,
-            next,
-            skip,
-            reset,
-            data: session
-        }
-    }), [pomodoro, countdown, next, start])
+    const value = useMemo<PomodoroContextValue>(
+        () => ({
+            alarm,
+            countdown,
+            data: {
+                isStarted,
+                isFinished
+            },
+            session: {
+                start,
+                next,
+                skip,
+                reset,
+                data: session
+            }
+        }),
+        [pomodoro, countdown, next, start]
+    )
 
-    return <PomodoroContext value={value}>
-        {children}
-    </PomodoroContext>
+    return <PomodoroContext value={value}>{children}</PomodoroContext>
 }
