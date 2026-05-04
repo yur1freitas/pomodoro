@@ -1,0 +1,9 @@
+{
+    "**/*.{ts,tsx}": [
+        "oxlint --fix --max-warnings=0",
+        "oxfmt --no-error-on-unmatched-pattern --write"
+    ],
+    "**/*.{md,html,css,yml,yaml,json}": [
+        "oxfmt --no-error-on-unmatched-pattern --write"
+    ]
+}
