@@ -20,6 +20,7 @@
         "@config/typescript": "workspace:",
         "@types/node": "^22.13.4",
         "husky": "^9.1.7",
+        "lint-staged": "^16.4.0",
         "oxfmt": "^0.47.0",
         "oxlint": "^1.62.0",
         "turbo": "^2.4.2",
