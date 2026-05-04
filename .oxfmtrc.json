@@ -1,0 +1,49 @@
+{
+    "$schema": "./node_modules/oxfmt/configuration_schema.json",
+    "semi": false,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "quoteProps": "consistent",
+    "tabWidth": 4,
+    "printWidth": 80,
+    "endOfLine": "lf",
+    "trailingComma": "none",
+    "ignorePatterns": ["*-lock.{yaml,json}"],
+    "sortTailwindcss": true,
+    "sortImports": {
+        "order": "desc",
+        "groups": [
+            "style",
+            ["type-builtin", "type-external"],
+            ["builtin", "external"],
+            "type-pomodoro",
+            "pomodoro",
+            "type-test",
+            "test",
+            "type-internal",
+            "internal",
+            ["type-parent", "type-sibling"],
+            ["parent", "sibling"]
+        ],
+        "customGroups": [
+            {
+                "selector": "type",
+                "groupName": "type-test",
+                "elementNamePattern": ["__test__/**"]
+            },
+            {
+                "groupName": "test",
+                "elementNamePattern": ["__test__/**"]
+            },
+            {
+                "selector": "type",
+                "groupName": "type-pomodoro",
+                "elementNamePattern": ["@pomodoro/**"]
+            },
+            {
+                "groupName": "pomodoro",
+                "elementNamePattern": ["@pomodoro/**"]
+            }
+        ]
+    }
+}
